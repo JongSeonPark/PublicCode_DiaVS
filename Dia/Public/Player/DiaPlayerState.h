@@ -25,7 +25,6 @@ class DIA_API ADiaPlayerState : public APlayerState, public IAbilitySystemInterf
 
 public:
 	ADiaPlayerState();
-	virtual void BeginPlay() override;
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override { return AbilitySystemComponent; }
 	UDiaAttributeSet* GetAttributeSet() const { return AttributeSet; }
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
@@ -51,14 +50,6 @@ public:
 	void AddExp(const int32 InExp);
 	void AddLevelUpPoint(const int32 InLevelUpPoint);
 	void AddGold(const int32 InGold);
-
-	//~APlayerState interface
-	virtual void Reset() override;
-	virtual void ClientInitialize(AController* C) override;
-	virtual void CopyProperties(APlayerState* PlayerState) override;
-	virtual void OnDeactivated() override;
-	virtual void OnReactivated() override;
-	//~End of APlayerState interface
 	
 protected:
 	UPROPERTY(VisibleAnywhere)

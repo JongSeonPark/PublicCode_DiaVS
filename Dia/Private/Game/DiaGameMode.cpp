@@ -29,7 +29,6 @@ ADiaGameMode::ADiaGameMode()
 
 void ADiaGameMode::BeginPlay()
 {
-	UE_LOG(LogDia, Display, TEXT(__FUNCTION__));
 	Super::BeginPlay();
 	UGameplayMessageSubsystem& MessageSubsystem = UGameplayMessageSubsystem::Get(GetWorld());
 	ListenerHandles.Add(MessageSubsystem.RegisterListener(DiaGameplayTags::Event_DamageNumber, this, &ThisClass::OnDamageNumberMessage));
@@ -37,7 +36,6 @@ void ADiaGameMode::BeginPlay()
 
 void ADiaGameMode::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
-	UE_LOG(LogDia, Display, TEXT(__FUNCTION__));
 	Super::EndPlay(EndPlayReason);
 	UGameplayMessageSubsystem& MessageSubsystem = UGameplayMessageSubsystem::Get(this);
 	for (const FGameplayMessageListenerHandle& Handle : ListenerHandles)

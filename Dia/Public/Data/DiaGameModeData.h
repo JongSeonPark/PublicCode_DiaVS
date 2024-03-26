@@ -40,7 +40,7 @@ USTRUCT(BlueprintType)
 struct FDiaGameModeEnemySpawnData
 {
 	GENERATED_BODY()
-	
+	// 발생 시간
 	UPROPERTY(EditDefaultsOnly)
 	double TimeElapsed = 0.f;
 
@@ -49,13 +49,14 @@ struct FDiaGameModeEnemySpawnData
 	double Interval = 1.0;
 	UPROPERTY(EditDefaultsOnly)
 	int32 EnemyMinimum = 15;
-
 	UPROPERTY(EditDefaultsOnly)
 	TArray<TSubclassOf<ADiaEnemyCharacter>> WaveEnemies;
-	
+
+	// BossSpawn
 	UPROPERTY(EditDefaultsOnly)
 	TArray<FSpawnBossData> SpawnBossDatas;
 
+	// 현 시간에 다른 몬스터를 모두 삭제할 것인지
 	UPROPERTY(EditDefaultsOnly)
 	bool bClearAll = false;	
 };

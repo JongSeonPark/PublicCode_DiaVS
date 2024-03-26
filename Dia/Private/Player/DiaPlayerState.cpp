@@ -24,11 +24,6 @@ ADiaPlayerState::ADiaPlayerState()
 	AttributeSet = CreateDefaultSubobject<UDiaAttributeSet>("AttributeSet");
 }
 
-void ADiaPlayerState::BeginPlay()
-{
-	Super::BeginPlay();
-}
-
 void ADiaPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
@@ -87,58 +82,18 @@ void ADiaPlayerState::AddGold(const int32 InGold)
 	OnGoldChanged.Broadcast(Gold);
 }
 
-void ADiaPlayerState::Reset()
-{
-	UE_LOG(LogDia, Display, TEXT(__FUNCTION__));
-	Super::Reset();
-}
-
-void ADiaPlayerState::ClientInitialize(AController* C)
-{
-	UE_LOG(LogDia, Display, TEXT(__FUNCTION__));
-	Super::ClientInitialize(C);
-}
-
-void ADiaPlayerState::CopyProperties(APlayerState* PlayerState)
-{
-	UE_LOG(LogDia, Display, TEXT(__FUNCTION__));
-	Super::CopyProperties(PlayerState);
-}
-
-void ADiaPlayerState::OnDeactivated()
-{
-	UE_LOG(LogDia, Display, TEXT(__FUNCTION__));
-	Super::OnDeactivated();
-}
-
-void ADiaPlayerState::OnReactivated()
-{
-	UE_LOG(LogDia, Display, TEXT(__FUNCTION__));
-	Super::OnReactivated();
-}
-
 void ADiaPlayerState::OnRep_Level(int32 OldLevel)
 {
-	UKismetSystemLibrary::PrintString(GetWorld(), FString::Printf(TEXT("OnRep_Level. OldValue: %d, NewValue: %d"), OldLevel, Level));
 	OnLevelChanged.Broadcast(Level);
 }
 
 void ADiaPlayerState::OnRep_Exp(int32 OldExp)
 {
-	UKismetSystemLibrary::PrintString(GetWorld(), FString::Printf(TEXT("OnRep_Exp. OldValue: %d, NewValue: %d"), OldExp, Exp));
 	OnExpChanged.Broadcast(Exp);
 }
 
 void ADiaPlayerState::OnRep_LevelUpPoint(int32 OldLevelUpPoint)
 {
-	UKismetSystemLibrary::PrintString(GetWorld(), FString::Printf(TEXT("OnRep_LevelUpPoint. OldValue: %d, NewValue: %d"), OldLevelUpPoint, LevelUpPoint));
-	// TArray<FGameplayTag> VSTags = GetAvailableRandomVSTags();
-	// FString TagsString;
-	// for (FGameplayTag Tag : VSTags)
-	// {
-	// 	TagsString += " " + Tag.ToString();
-	// }
-	// UKismetSystemLibrary::PrintString(GetWorld(), FString::Printf(TEXT("Tags %s"), *TagsString));
 	OnLevelUpPointChanged.Broadcast(LevelUpPoint);
 }
 
@@ -156,7 +111,6 @@ TArray<FGameplayTag> ADiaPlayerState::GetRandomVSTagsOnLevelUp(int32 NumSelectio
 	if (!DiaGameInstance) return Result;
 
 	TMap<FGameplayTag, FGameplayAbilitySpecHandle> AbilitySpecHandles = AbilitySystemComponent->GetVSGameplayAbilitySpecHandles();
-
 
 	if (AbilitySpecHandles.Num() < 6)
 	{

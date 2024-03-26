@@ -18,7 +18,6 @@ class UPlayerInterface : public UInterface
 class DIA_API IPlayerInterface
 {
 	GENERATED_BODY()
-
 public:
 	UFUNCTION(BlueprintNativeEvent)
 	void AddToExp(int32 InExp);

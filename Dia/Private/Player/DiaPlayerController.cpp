@@ -1,12 +1,10 @@
 #include "Player/DiaPlayerController.h"
 #include "GameFramework/Pawn.h"
 #include "Blueprint/AIBlueprintHelperLibrary.h"
-#include "NiagaraFunctionLibrary.h"
 #include "Engine/World.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "AbilitySystem/DiaAbilitySystemComponent.h"
-#include "Dia/Dia.h"
 #include "Engine/LocalPlayer.h"
 #include "Input/DiaInputConfig.h"
 #include "AbilitySystemBlueprintLibrary.h"
@@ -37,10 +35,7 @@ ADiaPlayerController::ADiaPlayerController()
 
 void ADiaPlayerController::BeginPlay()
 {
-	// Call the base class  
 	Super::BeginPlay();
-
-	//Add Input Mapping Context
 	if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer()))
 	{
 		Subsystem->AddMappingContext(DefaultMappingContext, 0);

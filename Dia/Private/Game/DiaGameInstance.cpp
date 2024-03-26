@@ -25,8 +25,6 @@ const UItemStatsBase* UDiaGameInstance::GetItemStats(const FGameplayTag& Gamepla
 
 void UDiaGameInstance::Init()
 {
-	UE_LOG(LogDia, Display, TEXT(__FUNCTION__));
-
 	IOnlineSubsystem* OnlineSubsystem = IOnlineSubsystem::Get();
 	if (OnlineSubsystem)
 	{
@@ -182,21 +180,7 @@ void UDiaGameInstance::OnFindSessionsComplete(bool Success)
 void UDiaGameInstance::OnJoinSessionComplete(FName SessionName, EOnJoinSessionCompleteResult::Type Result)
 {
 	if (!SessionInterface.IsValid()) return;
-	// switch (Result)
-	// {
-	// case EOnJoinSessionCompleteResult::Success:
-	// 	JoinSession(SessionName);
-	// 	break;
-	// default: ;
-	// // 다른 실패 케이스
-	// // case EOnJoinSessionCompleteResult::SessionIsFull:
-	// // case EOnJoinSessionCompleteResult::SessionDoesNotExist:
-	// // case EOnJoinSessionCompleteResult::CouldNotRetrieveAddress:
-	// // case EOnJoinSessionCompleteResult::AlreadyInSession:
-	// // case EOnJoinSessionCompleteResult::UnknownError:
-	// // 	break;
-	// }
-
+	
 	FString Address;
 	if (!SessionInterface->GetResolvedConnectString(SESSION_NAME, Address))
 	{

@@ -18,14 +18,11 @@ class UCombatInterface : public UInterface
 class DIA_API ICombatInterface
 {
 	GENERATED_BODY()
-
 public:
 	UFUNCTION(BlueprintNativeEvent)
 	void Die();
-
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	bool IsDead();
-
 	UFUNCTION(BlueprintNativeEvent)
 	int32 GetCharacterLevel() const;
 };

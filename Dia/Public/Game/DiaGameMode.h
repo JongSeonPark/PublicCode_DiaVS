@@ -17,7 +17,6 @@ UCLASS()
 class DIA_API ADiaGameMode : public AGameMode
 {
 	GENERATED_BODY()
-
 public:
 	ADiaGameMode();
 	//~AActor interface

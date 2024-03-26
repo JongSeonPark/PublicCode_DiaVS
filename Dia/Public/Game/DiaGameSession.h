@@ -6,9 +6,6 @@
 #include "GameFramework/GameSession.h"
 #include "DiaGameSession.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class DIA_API ADiaGameSession : public AGameSession
 {

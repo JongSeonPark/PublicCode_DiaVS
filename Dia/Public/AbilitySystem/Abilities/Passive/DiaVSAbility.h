@@ -17,7 +17,9 @@ public:
 	virtual void AssignDefaultSetByCallerMagnitude(const FGameplayEffectSpecHandle& SpecHandle) override;
 	
 protected:
+	// 쿨다운에 따라 반복되는 함수
 	virtual void OnLoopAbility();
+	// OnLoopAbility함수 호출시 ProjectileInterval 간격으로 Amount만큼 반복된다.
 	UFUNCTION()
 	virtual void RepeatAction(int ActionNumber);
 
