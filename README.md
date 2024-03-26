@@ -1,0 +1,3 @@
+- Notion: [3D Vamfire Survivors](https://www.notion.so/3D-Vamfire-Survivors-5ba505402a7d404991144380f9fb92ca?pvs=21)
+- GitHub: https://github.com/JongSeonPark/PublicCode_DiaVS
+- Youtube: https://youtu.be/jPDbj-x0Ig8
